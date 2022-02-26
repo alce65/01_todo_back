@@ -1,0 +1,28 @@
+GET http://localhost:3600/tasks
+
+###
+
+GET http://localhost:3600/tasks/6219f99e4bc1c91f0dc59265
+
+###
+
+POST http://localhost:3600/tasks
+content-type: application/json
+
+{
+  "title": "Tarea adicional",
+  "responsible": "Raul",
+  "isCompleted": false
+}
+
+###
+
+PATCH http://localhost:3600/tasks/621a1603386d75fe79fbb93b
+content-type: application/json
+
+{
+  "isCompleted": true
+}
+
+###
+DELETE http://localhost:3600/tasks/621a1603386d75fe79fbb93b
