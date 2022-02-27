@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 import { mongoConnect, tasksConnect, installTasks } from './db.js';
+import data from './task.data.js';
 
 describe('given a connection with MongoDB', () => {
     const collection = 'testingTasks';
@@ -23,9 +24,9 @@ describe('given a connection with MongoDB', () => {
 
     test('then it should be created and populated', async () => {
         // const { Task, connection } = await tasksConnect(collection);
-        const { result } = await installTasks([], collection);
+        const { result } = await installTasks(data.tasks, collection);
         expect(result).toBeTruthy();
         expect(Array.isArray(result)).toBe(true);
-        expect(result.length).toBe(0);
+        expect(result.length).toBe(data.tasks.length);
     });
 });

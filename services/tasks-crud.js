@@ -22,7 +22,8 @@ export async function insertTask(task, Task) {
     mongoClient.close(); */
     const newTask = new Task(task);
     newTask.algo();
-    return await newTask.save();
+    const result = await newTask.save();
+    return result;
 }
 
 export async function updateTask(id, partialTask, Task) {

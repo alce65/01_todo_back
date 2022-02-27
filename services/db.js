@@ -29,7 +29,7 @@ export async function tasksConnect(collection = 'tasks') {
     // return { mongoClient, booksCollection };
     const connection = await mongoConnect();
     const taskSchema = new mongoose.Schema({
-        title: String,
+        title: { type: String, required: true, unique: true },
         responsible: String,
         isCompleted: Boolean,
     });
