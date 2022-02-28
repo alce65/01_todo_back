@@ -2,6 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 import {
+    protectRoute,
     getAllTasks,
     getTask,
     insertTask,
@@ -11,7 +12,7 @@ import {
 
 /* GET users listing. */
 
-router.get('/', getAllTasks);
+router.get('/', protectRoute, getAllTasks);
 router.get('/:id', getTask);
 router.post('/', insertTask);
 router.patch('/:id', updateTask);
