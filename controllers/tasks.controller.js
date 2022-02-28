@@ -48,6 +48,12 @@ export const updateTask = (req, res) => {
 };
 export const deleteTask = (req, res) => {
     crud.deleteTask(req.params.id, Task).then((resp) => {
-        res.json(resp);
+        if (resp) {
+            res.status(202);
+            res.json(resp);
+        } else {
+            res.status(204);
+            res.json({ message: 'Tarea no existente' });
+        }
     });
 };

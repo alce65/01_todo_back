@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const app = express();
+export const app = express();
 const port = process.env.PORT;
 
 // const usersRouter = require('./routes/tasks.js');
@@ -14,6 +14,6 @@ app.use(morgan('dev'));
 
 app.use('/tasks', tasksRouter);
 
-app.listen(port, () => {
+export const server = app.listen(port, () => {
     console.log(`Server listening in http://localhost:${port}`);
 });

@@ -109,6 +109,7 @@ describe('Given the tasks controller', () => {
             });
             test('Then call json', async () => {
                 await controller.deleteTask(req, res, next);
+                expect(res.status).toHaveBeenCalledWith(202);
                 expect(res.json).toHaveBeenCalled();
             });
         });

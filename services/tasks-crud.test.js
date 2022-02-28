@@ -3,8 +3,6 @@ import { installTasks, tasksConnect } from './db.js';
 import data from './task.data.js';
 import * as tasksSrv from './tasks-crud.js';
 
-mongo.MongoServerError;
-
 describe('given a connection with a MongoDB', () => {
     describe('when a collection is defined and populated', () => {
         let connection;
