@@ -23,11 +23,16 @@ export const login = (req, resp, next) => {
         ) {
             next(new Error('user or password invalid'));
         } else {
+            const id = parseInt(Math.random() * 10000);
             const token = createToken({
                 name: user.name,
-                id: parseInt(Math.random() * 10000),
+                id,
             });
-            resp.json({ token });
+            resp.json({
+                token,
+                userName: user.name,
+                id,
+            });
         }
     }
 };
